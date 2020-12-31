@@ -17,8 +17,8 @@ module.exports = function (app, passport) {
         res.render('login.ejs', {message: req.flash('loginMessage')});
     });
 
-    // Xử lý thông tin khi có người thực hiện đăng nhập
-    // app.post('/login', chúng ta sẽ xử lý với passport ở đây);
+    //Xử lý thông tin khi có người thực hiện đăng nhập
+    //app.post('/login', chúng ta sẽ xử lý với passport ở đây);
 
     // =====================================
     // SIGNUP ==============================
@@ -28,14 +28,14 @@ module.exports = function (app, passport) {
         res.render('signup.ejs', {message: req.flash('signupMessage')});
 	});
 	
-	// Xử lý thông tin khi có người đăng ký
+	//Xử lý thông tin khi có người đăng ký
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/profile', // chuyển hướng tới trang được bảo vệ
         failureRedirect: '/signup', // trở lại trang đăng ký nếu có lỗi
         failureFlash: true // allow flash messages
     }));
 
-	// Xử lý thông tin khi có người thực hiện đăng nhập
+	//Xử lý thông tin khi có người thực hiện đăng nhập
     app.post('/login', passport.authenticate("local-login", {
         successRedirect : '/profile',
         failureRedirect : '/login',
